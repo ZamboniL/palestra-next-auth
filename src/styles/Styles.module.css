@@ -1,10 +1,19 @@
 .main {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   padding: 6rem;
   min-height: 100vh;
+}
+
+.main > a {
+  margin: 16px;
+  color: black;
+}
+
+.main > a:hover {
+  color: white;
 }
 
 .description {
@@ -49,9 +58,15 @@
 .card {
   padding: 1rem 1.2rem;
   border-radius: var(--border-radius);
-  background: rgba(var(--card-rgb), 0);
+  background: #fff;
   border: 1px solid rgba(var(--card-border-rgb), 0);
   transition: background 200ms, border 200ms;
+  color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-direction: column;
 }
 
 .card span {
@@ -64,12 +79,50 @@
   margin-bottom: 0.7rem;
 }
 
+.card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card input {
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 8px 16px;
+}
+
+.card button {
+  border-radius: 8px;
+  font-size: 16px;
+  padding: 8px 16px;
+  background: rgb(59, 59, 59);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  width: fit-content;
+  margin: 16px auto 0px;
+}
+
+.card button:hover {
+  background: rgb(79, 79, 79);
+}
+
 .card p {
   margin: 0;
-  opacity: 0.6;
   font-size: 0.9rem;
   line-height: 1.5;
   max-width: 30ch;
+}
+
+.loading {
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 .center {
@@ -97,7 +150,7 @@
 
 .center::before,
 .center::after {
-  content: '';
+  content: "";
   left: 50%;
   position: absolute;
   filter: blur(45px);
@@ -125,7 +178,7 @@
 
 .thirteen::before,
 .thirteen::after {
-  content: '';
+  content: "";
   position: absolute;
   z-index: -1;
 }
@@ -153,11 +206,6 @@
 
 /* Enable hover only on non-touch devices */
 @media (hover: hover) and (pointer: fine) {
-  .card:hover {
-    background: rgba(var(--card-rgb), 0.1);
-    border: 1px solid rgba(var(--card-border-rgb), 0.15);
-  }
-
   .card:hover span {
     transform: translateX(4px);
   }
